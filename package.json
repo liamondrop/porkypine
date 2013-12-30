@@ -1,10 +1,24 @@
 {
   "name": "porkypine",
   "version": "0.0.1",
-  "scripts": {
-    "test": "mocha test"
-  },
-  "readmeFilename": "README.md",
   "author": "Liam Bowers",
-  "license": "MIT"
+  "description": "A CoffeeScript implementation of some classic data structures",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/liamondrop/porkypine.git"
+  },
+  "keywords": [
+    "data structure",
+    "linked list",
+    "singly linked list",
+    "CoffeeScript"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "coffee-script": "~1.6.3"
+  },
+  "engines": {
+    "node": "*"
+  }
 }
