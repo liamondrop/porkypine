@@ -1,0 +1,10 @@
+{
+  "name": "porkypine",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "readmeFilename": "README.md",
+  "author": "Liam Bowers",
+  "license": "MIT"
+}
