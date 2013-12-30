@@ -1,4 +1,4 @@
 porkypine
 =========
 
-A Data Structure Library in CoffeeScript
+A CoffeeScript implementation of some classic data structures
