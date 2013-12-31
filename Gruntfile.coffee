@@ -2,7 +2,6 @@ module.exports = (grunt) ->
 
   grunt.initConfig
     package: grunt.file.readJSON 'package.json'
-    outputFileName: '<%= package.name %>'
 
     watch:
       all:
@@ -14,8 +13,8 @@ module.exports = (grunt) ->
 
     uglify:
       all:
-        src: ['dist/browser/<%= outputFileName %>.js']
-        dest: 'dist/browser/<%= outputFileName %>.min.js'
+        src: ['dist/browser/<%= package.name %>.js']
+        dest: 'dist/browser/<%= package.name %>.min.js'
 
     coffee:
       all:
@@ -37,7 +36,14 @@ module.exports = (grunt) ->
           expose:
             'porkypine': './index.js'
         entry: './index.js'
-        compile: 'dist/browser/<%= outputFileName %>.js'
+        compile: 'dist/browser/<%= package.name %>.js'
+
+    mochaTest:
+      test:
+        options:
+          reporter: 'spec'
+          require: ['coffee-script']
+        src: ['spec/**/*Spec.coffee']
 
 
   grunt.loadNpmTasks 'grunt-contrib-watch'
@@ -46,5 +52,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-coffeelint'
   grunt.loadNpmTasks 'grunt-browserify2'
+  grunt.loadNpmTasks 'grunt-mocha-test'
 
-  grunt.registerTask 'default', ['coffeelint', 'clean', 'coffee', 'browserify2', 'uglify']
+  grunt.registerTask 'default', ['coffeelint', 'clean', 'coffee', 'browserify2']
+  grunt.registerTask 'test', ['coffeelint', 'mochaTest']
