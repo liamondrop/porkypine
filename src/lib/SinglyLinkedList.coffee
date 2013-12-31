@@ -22,13 +22,11 @@ class SinglyLinkedList
 
   add: (data) ->
     newNode = node data
-
     if @head is null
       @head = newNode
     else
       current = @at(@length - 1)
       current.next = newNode
-    
     @length += 1
     return @
 
