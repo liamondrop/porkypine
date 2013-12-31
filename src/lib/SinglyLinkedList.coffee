@@ -1,54 +1,68 @@
+node = (data, next) ->
+  data: data
+  next: next
+
 class SinglyLinkedList
-  constructor: (values = []) ->
+  constructor: (data = []) ->
     @head = null
     @length = 0
-    @add v for v in values
+    @add d for d in data
     return @
 
 
-  add: (value) ->
-    node =
-      data: value
-      next: null
-
-    if @head is null
-      @head = node
-    else
-      current = @head
-      while current.next isnt null
-        current = current.next
-      current.next = node
-    
-    @length += 1
-    return @
-
-
-  removeAt: (index) ->
-    if -1 < index < @length
-      current = @head
-      i = 0
-      if index is 0
-        @head = current.next
-      else
-        while i < index
-          prev = current
-          current = current.next
-          i += 1
-        prev.next = current.next
-
-      @length -= 1
-
-    return @
-
-
-  get: (index) ->
-    if -1 < index < @length
+  at: (index) ->
+    if (-1 < index < @length)
       current = @head
       i = 0
       while i < index
         current = current.next
         i += 1
       return current
+
+
+  add: (data) ->
+    newNode = node data
+
+    if @head is null
+      @head = newNode
+    else
+      current = @at(@length - 1)
+      current.next = newNode
+    
+    @length += 1
+    return @
+
+
+  insertAfter: (index, data) ->
+    current = @at(index)
+    if current
+      newNode = node data
+      newNode.next = current.next
+      current.next = newNode
+      @length += 1
+      return @
+
+
+  insertBeginning: (data) ->
+    newNode = node data
+    newNode.next = @head
+    @head = newNode
+    @length += 1
+    return @
+
+
+  removeAfter: (index) ->
+    current = @at(index)
+    if current
+      current.next = current.next.next
+      @length -= 1
+      return @
+
+
+  removeBeginning: ->
+    @head = @head.next
+    @length -= 1
+    return @
 
 
   toArray: ->
