@@ -28,7 +28,7 @@ module.exports = (grunt) ->
 
     coffeelint:
       app:
-        src: ['src/**/*.coffee']
+        src: ['src/**/*.coffee', 'spec/**/*.coffee']
 
     browserify2:
       compile:
