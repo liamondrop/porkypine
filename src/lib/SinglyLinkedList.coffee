@@ -1,5 +1,5 @@
 class SinglyLinkedList
-  constructor: (values...) ->
+  constructor: (values = []) ->
     @head = null
     @length = 0
     @add v for v in values
@@ -30,11 +30,10 @@ class SinglyLinkedList
       if index is 0
         @head = current.next
       else
-        while index > i
+        while i < index
           prev = current
           current = current.next
           i += 1
-
         prev.next = current.next
 
       @length -= 1
@@ -42,11 +41,11 @@ class SinglyLinkedList
     return @
 
 
-  at: (index) ->
+  get: (index) ->
     if -1 < index < @length
       current = @head
       i = 0
-      while index > i
+      while i < index
         current = current.next
         i += 1
       return current
