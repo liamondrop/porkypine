@@ -69,7 +69,7 @@ describe 'Singly Linked List', ->
       expect(ll.at(index + 1).data).to.equal data
       expect(ll.at(index).next.data).to.equal data
       log ll
-    it 'should increase the length by 1', ->
+    it 'should increment the length by 1', ->
       expect(ll.length).to.equal 5
     it 'should return undefined if index is outside of list bounds', ->
       index = 10
@@ -84,7 +84,7 @@ describe 'Singly Linked List', ->
       ll.insertBeginning data
       expect(ll.head.data).to.equal data
       log ll
-    it 'should increase the length by 1', ->
+    it 'should increment the length by 1', ->
       expect(ll.length).to.equal 5
     it 'should move the old head to the second position in the list', ->
       expect(ll.head.next).to.equal oldHead
@@ -100,7 +100,7 @@ describe 'Singly Linked List', ->
       log ll
     it 'should decrement the length', ->
       expect(ll.length).to.equal 3
-    it 'should return undefined if index is greater than or equal to list.length', ->
+    it 'should return undefined if index is >= to list.length', ->
       index = 10
       expect(ll.removeAfter index).to.equal undefined
 
