@@ -54,5 +54,5 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-browserify2'
   grunt.loadNpmTasks 'grunt-mocha-test'
 
-  grunt.registerTask 'default', ['coffeelint', 'clean', 'coffee', 'browserify2']
+  grunt.registerTask 'default', ['coffeelint', 'clean', 'coffee', 'test', 'browserify2']
   grunt.registerTask 'test', ['coffeelint', 'mochaTest']
