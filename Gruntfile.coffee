@@ -5,9 +5,9 @@ module.exports = (grunt) ->
     outputFileName: '<%= package.name %>'
 
     watch:
-      scripts:
-        files: 'src/**/*.js'
-        tasks: ['lintcompile']
+      all:
+        files: ['src/**/*.coffee']
+        tasks: ['coffeelint', 'coffee']
 
     clean:
       all: ['dist/*']
@@ -48,5 +48,3 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-browserify2'
 
   grunt.registerTask 'default', ['coffeelint', 'clean', 'coffee', 'browserify2', 'uglify']
-  grunt.registerTask 'lintcompile', ['coffeelint', 'coffee']
-  grunt.registerTask 'watch'
