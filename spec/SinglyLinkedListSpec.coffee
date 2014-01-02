@@ -1,6 +1,5 @@
 expect = require 'expect.js'
-porkypine = require('../index').porkypine
-LinkedList = porkypine.SinglyLinkedList
+LinkedList = require('../index').SinglyLinkedList
 
 log = (ll) ->
   console.log ll.toString()
