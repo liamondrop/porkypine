@@ -6,7 +6,7 @@ class SinglyLinkedList
   constructor: (dataItems = []) ->
     @head = null
     @length = 0
-    @add item for item in dataItems
+    @push item for item in dataItems
     return @
 
 
@@ -20,7 +20,7 @@ class SinglyLinkedList
       return current
 
 
-  add: (data) ->
+  push: (data) ->
     newNode = node data
     if @head is null
       @head = newNode

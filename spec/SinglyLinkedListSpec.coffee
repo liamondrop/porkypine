@@ -20,8 +20,8 @@ describe 'Singly Linked List', ->
       expect(ll1).to.be instanceof LinkedList
     it 'should accept an arbitrary number of arguments', ->
       expect(ll2.length).to.equal range.length
-    it 'should have a length equal to the number of added items', ->
-      ll1.add n for n in range
+    it 'should have a length equal to the number of pushed items', ->
+      ll1.push n for n in range
       expect(ll1.length).to.equal range.length
 
   describe 'LinkedList.head', ->
@@ -33,7 +33,7 @@ describe 'Singly Linked List', ->
   describe 'LinkedList.length', ->
     range = [randBetween(1, 20)..randBetween(21, 100)]
     ll = new LinkedList range
-    it 'should equal the number of items added to the list', ->
+    it 'should equal the number of items pushed to the list', ->
       expect(ll.length).to.equal(range.length)
 
   describe 'LinkedList.at', ->
@@ -43,20 +43,20 @@ describe 'Singly Linked List', ->
       expect(ll.at(0).data).to.equal range[0]
       expect(ll.at(1).data).to.equal range[1]
 
-  describe 'LinkedList.add', ->
+  describe 'LinkedList.push', ->
     ll = new LinkedList [1, 2, 3, 4]
     it 'should push a new node onto the end of the list', ->
       data = 5
-      ll.add data
+      ll.push data
       expect(ll.at(ll.length - 1).data).to.equal data
       log ll
-    it 'should be possible to add any data type', ->
-      ll.add [{1, 2, 3}, [101, 202, 303]]
-      ll.add 'test data'
-      ll.add /[^A-Z]/gi
-      ll.add Infinity
-      ll.add NaN
-      ll.add ->
+    it 'should be possible to push any data type', ->
+      ll.push [{1, 2, 3}, [101, 202, 303]]
+      ll.push 'test data'
+      ll.push /[^A-Z]/gi
+      ll.push Infinity
+      ll.push NaN
+      ll.push ->
       log ll
 
   describe 'LinkedList.insertAfter', ->
