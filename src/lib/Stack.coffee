@@ -5,7 +5,7 @@ class Stack extends SinglyLinkedList
   # to match Stack spec when initiating,
   # e.g. new Stack([1, 2, 3, 4]) => [4, 3, 2, 1]
   push: (data) ->
-    @insertBeginning data
+    @insertBeginning(data)
 
 
   pop: ->

@@ -3,7 +3,7 @@ node = (data, next) ->
   next: next
 
 class SinglyLinkedList
-  constructor: (dataItems = []) ->
+  constructor: (dataItems=[]) ->
     @head = null
     @length = 0
     @push item for item in dataItems
@@ -21,11 +21,11 @@ class SinglyLinkedList
 
 
   push: (data) ->
-    newNode = node data
+    newNode = node(data)
     if @head is null
       @head = newNode
     else
-      current = @at @length - 1
+      current = @at(@length-1)
       current.next = newNode
     @length += 1
     return @
@@ -34,7 +34,7 @@ class SinglyLinkedList
   insertAfter: (index, data) ->
     current = @at index
     if current
-      newNode = node data
+      newNode = node(data)
       newNode.next = current.next
       current.next = newNode
       @length += 1
@@ -42,7 +42,7 @@ class SinglyLinkedList
 
 
   insertBeginning: (data) ->
-    newNode = node data
+    newNode = node(data)
     newNode.next = @head
     @head = newNode
     @length += 1
@@ -50,7 +50,7 @@ class SinglyLinkedList
 
 
   removeAfter: (index) ->
-    current = @at index
+    current = @at(index)
     if current
       current.next = current.next.next
       @length -= 1
@@ -67,7 +67,7 @@ class SinglyLinkedList
     current = @head
     arr = []
     while current
-      arr.push current.data
+      arr.push(current.data)
       current = current.next
     return arr
 
