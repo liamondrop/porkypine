@@ -37,6 +37,26 @@ module.exports = (grunt) ->
             'porkypine': './index.js'
         entry: './index.js'
         compile: 'dist/browser/<%= package.name %>.js'
+      test:
+        entry: './spec/index.coffee'
+        compile: 'dist/browser/test/<%= package.name %>-spec.js'
+        debug: true
+        beforeHook: (bundle) ->
+          bundle.transform('coffeeify')
+
+    karma:
+      unit:
+        options:
+          files: ['*-spec.js']
+        basePath: './dist/browser/test/'
+        frameworks: ['mocha']
+        autoWatch: true
+        port: 9876
+        reporters: ['progress', 'coverage']
+        preprocessors: { './dist/browser/*.js': ['coverage'] }
+        coverageReporter: { type : 'text' }
+        browsers: ['PhantomJS']
+        captureTimeout: 60000
 
     mochaTest:
       test:
@@ -53,6 +73,8 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-coffeelint'
   grunt.loadNpmTasks 'grunt-browserify2'
   grunt.loadNpmTasks 'grunt-mocha-test'
+  grunt.loadNpmTasks 'grunt-karma'
 
   grunt.registerTask 'default', ['coffeelint', 'clean', 'coffee', 'test', 'browserify2']
   grunt.registerTask 'test', ['coffeelint', 'mochaTest']
+  grunt.registerTask 'browsertest', ['coffeelint', 'browserify2:test', 'karma']

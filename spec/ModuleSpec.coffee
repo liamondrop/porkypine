@@ -1,5 +1,5 @@
 expect = require 'expect.js'
-Module = require '../src/lib/Module'
+Module = require '../src/lib/Module.coffee'
 
 classProperties =
   find: (id) ->
