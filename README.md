@@ -3,8 +3,8 @@ porkypine
 
 A CoffeeScript implementation of some classic data structures
 
-### `SinglyLinkedList()`
+#### `SinglyLinkedList()`
 
-### `Stack()` (LIFO)
+#### `Stack()` [LIFO]
 
-### `Queue()` (FIFO)
+#### `Queue()` [FIFO]
