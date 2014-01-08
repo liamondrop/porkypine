@@ -1,8 +1,8 @@
 SinglyLinkedList = require './SinglyLinkedList'
 
 class Queue extends SinglyLinkedList
-  enqueue: (data) ->
-    @push(data)
+  enqueue: (dataItem) ->
+    @push(dataItem)
 
 
   dequeue: ->

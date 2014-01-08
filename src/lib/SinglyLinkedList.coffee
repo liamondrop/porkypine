@@ -1,5 +1,5 @@
-node = (data, next) ->
-  data: data
+node = (dataItem, next) ->
+  data: dataItem
   next: next
 
 class SinglyLinkedList
@@ -38,18 +38,18 @@ class SinglyLinkedList
     return newNode
 
 
-  insertAfter: (position, data) ->
+  insertAfter: (position, dataItem) ->
     current = @at(position)
     if current
-      newNode = node(data)
+      newNode = node(dataItem)
       newNode.next = current.next
       current.next = newNode
       @length += 1
       return newNode
 
 
-  insertBeginning: (data) ->
-    newNode = node(data)
+  insertBeginning: (dataItem) ->
+    newNode = node(dataItem)
     newNode.next = @head
     @head = newNode
     @length += 1
