@@ -14,5 +14,10 @@ A CoffeeScript implementation of some classic data structures
  * `sll.toString()`
 
 #### `Stack()` [LIFO]
+ * `stack.push(dataItem)`
+ * `stack.pop()`
+ * `stack.peek()`
 
 #### `Queue()` [FIFO]
+ * `q.enqueue(dataItem)`
+ * `q.dequeue()`
