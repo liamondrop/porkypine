@@ -9,9 +9,7 @@ class Stack extends SinglyLinkedList
 
 
   pop: ->
-    oldHead = @head
     @removeBeginning()
-    return oldHead
 
 
   peek: ->
