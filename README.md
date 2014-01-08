@@ -13,11 +13,11 @@ A CoffeeScript implementation of some classic data structures
  * `sll.toArray()`
  * `sll.toString()`
 
-#### `Stack()` [LIFO]
+#### `Stack([dataItems])` [LIFO]
  * `stack.push(dataItem)`
  * `stack.pop()`
  * `stack.peek()`
 
-#### `Queue()` [FIFO]
+#### `Queue([dataItems])` [FIFO]
  * `q.enqueue(dataItem)`
  * `q.dequeue()`
