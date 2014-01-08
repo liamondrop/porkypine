@@ -31,6 +31,7 @@ class SinglyLinkedList
       @tail = newNode
     else
       @tail.next = newNode
+      @tail = newNode
     @length += 1
     return newNode
 
@@ -59,6 +60,8 @@ class SinglyLinkedList
       oldNode = current.next
       current.next = current.next.next
       @length -= 1
+      if position is @length
+        @tail = current
       return oldNode
 
 
@@ -66,6 +69,8 @@ class SinglyLinkedList
     oldNode = @head
     @head = @head.next
     @length -= 1
+    if @length is 0
+      @tail = @head
     return oldNode
 
 
