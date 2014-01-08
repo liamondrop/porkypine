@@ -13,19 +13,21 @@ class SinglyLinkedList
 
   at: (position) ->
     if -1 < position < @length
-      if position is (@length - 1)
+      if position is 0
+        return @head
+      else if position is (@length - 1)
         return @tail
       else
-        current = @head
-        i = 0
+        current = @head.next
+        i = 1
         while i < position
           current = current.next
           i += 1
         return current
 
 
-  push: (data) ->
-    newNode = node(data)
+  push: (dataItem) ->
+    newNode = node(dataItem)
     if @head is null
       @head = newNode
       @tail = newNode
