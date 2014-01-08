@@ -11,14 +11,14 @@ class SinglyLinkedList
     return @
 
 
-  at: (index) ->
-    if -1 < index < @length
-      if index is (@length - 1)
+  at: (position) ->
+    if -1 < position < @length
+      if position is (@length - 1)
         return @tail
       else
         current = @head
         i = 0
-        while i < index
+        while i < position
           current = current.next
           i += 1
         return current
@@ -35,8 +35,8 @@ class SinglyLinkedList
     return newNode
 
 
-  insertAfter: (index, data) ->
-    current = @at(index)
+  insertAfter: (position, data) ->
+    current = @at(position)
     if current
       newNode = node(data)
       newNode.next = current.next
@@ -53,8 +53,8 @@ class SinglyLinkedList
     return newNode
 
 
-  removeAfter: (index) ->
-    current = @at(index)
+  removeAfter: (position) ->
+    current = @at(position)
     if current
       oldNode = current.next
       current.next = current.next.next
