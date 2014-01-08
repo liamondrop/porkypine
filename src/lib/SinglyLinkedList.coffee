@@ -5,6 +5,7 @@ node = (data, next) ->
 class SinglyLinkedList
   constructor: (dataItems=[]) ->
     @head = null
+    @tail = null
     @length = 0
     @push item for item in dataItems
     return @
@@ -12,33 +13,36 @@ class SinglyLinkedList
 
   at: (index) ->
     if -1 < index < @length
-      current = @head
-      i = 0
-      while i < index
-        current = current.next
-        i += 1
-      return current
+      if index is (@length - 1)
+        return @tail
+      else
+        current = @head
+        i = 0
+        while i < index
+          current = current.next
+          i += 1
+        return current
 
 
   push: (data) ->
     newNode = node(data)
     if @head is null
       @head = newNode
+      @tail = newNode
     else
-      current = @at(@length-1)
-      current.next = newNode
+      @tail.next = newNode
     @length += 1
-    return @
+    return newNode
 
 
   insertAfter: (index, data) ->
-    current = @at index
+    current = @at(index)
     if current
       newNode = node(data)
       newNode.next = current.next
       current.next = newNode
       @length += 1
-      return @
+      return newNode
 
 
   insertBeginning: (data) ->
@@ -46,21 +50,23 @@ class SinglyLinkedList
     newNode.next = @head
     @head = newNode
     @length += 1
-    return @
+    return newNode
 
 
   removeAfter: (index) ->
     current = @at(index)
     if current
+      oldNode = current.next
       current.next = current.next.next
       @length -= 1
-      return @
+      return oldNode
 
 
   removeBeginning: ->
+    oldNode = @head
     @head = @head.next
     @length -= 1
-    return @
+    return oldNode
 
 
   toArray: ->
